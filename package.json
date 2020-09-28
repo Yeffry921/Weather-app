@@ -1,0 +1,20 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yeffry921/Weather-app.git"
+  },
+  "keywords": [],
+  "author": "ANTONI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yeffry921/Weather-app/issues"
+  },
+  "homepage": "https://github.com/Yeffry921/Weather-app#readme"
+}
