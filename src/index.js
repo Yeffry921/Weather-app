@@ -10,51 +10,67 @@ const weatherData = (() => {
 	function getCity(e) {
 		e.preventDefault();
 		return e.target.city.value;
-	}
-})();
-
-const weatherUI = (() => {
-	function renderUI(data) {
-		const celsiusTemp = convertKelvinToCelsius(data);
-		const fahrenheitTemp = convertKelvinToFahrenheit(data);
-
-		document.querySelector(
-			'.weather-output-temp'
-		).textContent = `Temperature is ${fahrenheitTemp.temperature} ${fahrenheitTemp.type}`;
-	}
-})();
-
-const weatherControl = (() => {
-	function convertKelvinToCelsius(temp) {
+  }
+  function convertKelvinToCelsius(temp) {
 		return {
-			type: 'C°',
-			temperature: Math.round(temp - 273.15)
-		};
+      type: 'C°',
+      temperature: Math.round(temp - 273.15),
+    }
+	
 	}
 
 	function convertKelvinToFahrenheit(temp) {
 		return {
 			type: 'F°',
-			temperature: Math.round(temp * 9 / 5 - 459.67)
+			temperature: Math.round(temp * 9 / 5 - 459.67),
 		};
   }
+  return {
+    getTemp,
+    getCity,
+    convertKelvinToCelsius,
+    convertKelvinToFahrenheit,
+  }
+})();
+
+const weatherUI = ((weatherData) => {
+
+	function renderUI(data) {
+
+		document.querySelector(
+			'.weather-output-temp'
+		).textContent = `Temperature is ${data.temperature} ${data.type}`;
+  }
   
+  return {
+    renderUI,
+  }
+
+})(weatherData);
+
+const weatherControl = ((weatherData, weatherUI) => {
+  // Kelvin Temp
+  let currentTemp;
+
   document.querySelector('.weather-input-form').addEventListener('submit', (e) => {
-    const city = getCity(e);
-    getTemp(city).then((data) => {
-      renderUI(data);
+    e.preventDefault();
+    // const city = getCity(e);
+    weatherData.getTemp(e.target.city.value).then((data) => {
+      // Kelving temp
+      weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(data));
+      currentTemp = data;
     });
   });
 
   document.querySelector('.weather-metric').addEventListener('click', (e) => {
     e.preventDefault();
-    if (e.target.textContent === 'C°') {
-      console.log('cel');
-    } else if (e.target.textContent === 'F°') {
-      console.log('fah');
+    if (e.target.textContent === 'C°' && currentTemp !== undefined) {
+      weatherUI.renderUI(weatherData.convertKelvinToCelsius(currentTemp))
+    } else if (e.target.textContent === 'F°' && currentTemp !== undefined) {
+      weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(currentTemp))
     }
   });
-})();
+})(weatherData, weatherUI);
 
 
 
