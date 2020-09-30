@@ -49,14 +49,14 @@ const weatherUI = ((weatherData) => {
 })(weatherData);
 
 const weatherControl = ((weatherData, weatherUI) => {
-  // Kelvin Temp
+  
   let currentTemp;
 
   document.querySelector('.weather-input-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    // const city = getCity(e);
+    
     weatherData.getTemp(e.target.city.value).then((data) => {
-      // Kelving temp
+  
       weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(data));
       currentTemp = data;
     });
