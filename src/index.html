@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-  
+
   <div id="app">
-    <div class="weather-input">
+    <div class="weather-input-container">
       <form class="weather-input-form">
         <div>
-          <label for="city">Enter City Name</label>
+          <label for="city">City Name</label>
           <input type="text" name="city" id="city">
           <input type="submit" class="btn btn-submit">
         </div>
       </form>
-    </div>
 
-    <div class="weather-output">
-      <h2 class="weather-output-temp"></h2>
-    </div>
 
-    <div class="weather-metric">
-      <a href="">F°</a>
-      <a href="">|</a>
-      <a href="">C°</a>
+      <div class="weather-output">
+        <div class="weather-output-picture"></div>
+        <span class="weather-output-temp">--</span>
+      </div>
+
+      <div class="weather-metric">
+        <a href="" class="metric">°F</a>
+        
+        <a href="" class="metric">°C</a>
+      </div>
     </div>
   </div>
   <script src="index.js"></script>
 </body>
+
 </html>

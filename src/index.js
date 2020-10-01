@@ -39,9 +39,8 @@ const weatherUI = ((weatherData) => {
 
 		document.querySelector(
 			'.weather-output-temp'
-		).textContent = `Temperature is ${data.temperature} ${data.type}`;
+		).textContent = `${data.temperature} ${data.type}`;
   }
-  
   return {
     renderUI,
   }
@@ -64,9 +63,9 @@ const weatherControl = ((weatherData, weatherUI) => {
 
   document.querySelector('.weather-metric').addEventListener('click', (e) => {
     e.preventDefault();
-    if (e.target.textContent === 'C°' && currentTemp !== undefined) {
+    if (e.target.textContent === '°C' && currentTemp !== undefined) {
       weatherUI.renderUI(weatherData.convertKelvinToCelsius(currentTemp))
-    } else if (e.target.textContent === 'F°' && currentTemp !== undefined) {
+    } else if (e.target.textContent === '°F' && currentTemp !== undefined) {
       weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(currentTemp))
     }
   });
