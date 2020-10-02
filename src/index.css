@@ -18,13 +18,14 @@ a {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-
 }
 body {
   font-family: 'Roboto', sans-serif;
   color: #fff;
 }
-
+.btn-submit {
+  padding: 10px;
+}
 .weather-input-container {
   background-color: #3b3b3b;
   height: 25rem;
@@ -35,8 +36,11 @@ body {
   flex-direction: column;
 }
 
-.weather-input-form input {
-  padding: 5px 5px;
+.weather-input-form .city{
+  padding: 10px 5px;
+}
+#city {
+  width: 80%;
 }
 .weather-output {
   display: flex;
