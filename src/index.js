@@ -7,13 +7,6 @@ const weatherData = (() => {
 		return data;
 	}
 
-  async function getCondition(condition) {
-    const apiKey = 'JCck8vGoViqPkfMBP6QWsnfxSnh6A4pu';
-
-    const response = await fetch(`https://api.giphy.com/v1/gifs/translate?apikey=${apiKey}&s=${condition}`)
-    const data = await response.json();
-    return data
-  }
 	function getCity(e) {
 		e.preventDefault();
 		return e.target.city.value;
@@ -60,11 +53,6 @@ const weatherControl = ((weatherData, weatherUI) => {
       currentTemp = data.main.temp;
 
       const weatherCondition = data.weather[0].description;
-      console.log(weatherCondition)
-      
-      weatherData.getCondition(weatherCondition).then((data) => {
-        console.log(data.data.url)
-      })
       
 		});
 	});
