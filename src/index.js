@@ -1,5 +1,5 @@
 const weatherData = (() => {
-	async function getTemp(city) {
+	const getTemp = async (city) => {
 		const apiKey = '50e876f0306cf9fa7f04e6e896979c45';
 
 		const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
@@ -7,18 +7,18 @@ const weatherData = (() => {
 		return data;
 	}
 
-	function getCity(e) {
+	const getCity = (e) => {
 		e.preventDefault();
 		return e.target.city.value;
 	}
-	function convertKelvinToCelsius(temp) {
+	const convertKelvinToCelsius = (temp) => {
 		return {
 			type: 'C°',
 			temperature: Math.round(temp - 273.15)
 		};
 	}
 
-	function convertKelvinToFahrenheit(temp) {
+	const convertKelvinToFahrenheit = (temp) => {
 		return {
 			type: 'F°',
 			temperature: Math.round(temp * 9 / 5 - 459.67)
@@ -29,18 +29,18 @@ const weatherData = (() => {
 		getCity,
 		convertKelvinToCelsius,
     convertKelvinToFahrenheit,
-    getCondition,
 	};
 })();
 
-const weatherUI = ((weatherData) => {
-	function renderUI(data) {
+const weatherUI = (() => {
+	const renderUI = (data) => {
 		document.querySelector('.weather-output-temp').textContent = `${data.temperature} ${data.type}`;
-	}
+  }
 	return {
-		renderUI
+    renderUI,
+    renderCondition
 	};
-})(weatherData);
+})();
 
 const weatherControl = ((weatherData, weatherUI) => {
 	let currentTemp;
@@ -49,11 +49,12 @@ const weatherControl = ((weatherData, weatherUI) => {
 		e.preventDefault();
 
 		weatherData.getTemp(e.target.city.value).then((data) => {
-      weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(data.main.temp));
       currentTemp = data.main.temp;
+      // const weatherCondition = data.weather[0].description;
 
-      const weatherCondition = data.weather[0].description;
-      
+      weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(data.main.temp));
+      // weatherUI.renderCondition(weatherCondition)
+
 		});
 	});
 
