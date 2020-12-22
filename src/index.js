@@ -38,7 +38,6 @@ const weatherUI = (() => {
   }
 	return {
     renderUI,
-    renderCondition
 	};
 })();
 
