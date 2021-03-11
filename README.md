@@ -4,7 +4,7 @@
 
 ## Description
 
-* Application is self explanatory, purpose is to incorporate what I've learned and polish my skills in HTML, CSS and Js. Project will be updated as much as possible as I learn.
+* App will take a location, zip, city etc and will display the weather in F/C. TBU
 
 ### Dependencies
 * None
