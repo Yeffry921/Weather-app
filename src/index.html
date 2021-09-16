@@ -5,26 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 
 <body>
 
   <div id="app">
-    <div class="weather-input-container">
-      <form class="weather-input-form">
-          <input type="text" name="city" id="city" class="city" placeholder="Enter City Name">
-          <input type="submit" class="btn btn-submit">
-      </form>
-      <div class="weather-output">
-        <div class="weather-output-picture"></div>
-        <span class="weather-output-temp">--</span>
-      </div>
-      <div class="weather-metric">
-        <a href="" class="metric">°F</a>
-        <a href="" class="metric">°C</a>
-      </div>
-    </div>
+    <section class="weather__header-container"></section>
+    <section class="weather__body-container"></section>
   </div>
   <script src="index.js"></script>
 </body>
