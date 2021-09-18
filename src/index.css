@@ -6,66 +6,28 @@
   margin: 0;
 }
 
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-}
-
-a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-}
 body {
   font-family: 'Roboto', sans-serif;
-  color: #fff;
+  color: red;
 }
-.btn-submit {
-  padding: 10px;
-}
-.weather-input-container {
-  background-color: #3b3b3b;
-  height: 25rem;
-  width: 25rem;
-  padding: 10px;
+
+.app {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.weather__header {
+  display: flex;
+  align-items: center;
   flex-direction: column;
 }
 
-.weather-input-form .city{
-  padding: 10px 5px;
-}
-#city {
-  width: 80%;
-}
-.weather-output {
-  display: flex;
-  justify-content: center;
-}
-.weather-output-temp {
-  color: lightblue;
-  font-size: 5rem;
-  font-weight: 400;
-}
-.weather-metric {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-}
-.weather-metric a {
-  font-size: 100px;
-  margin: 10px;
-}
-.weather-metric a:hover {
-  color: lightblue;
-
+.weather__location {
+  margin: 1em 0;
 }
 
-
-.weather-metric a {
-  text-decoration: none;
+.weather__description {
+  
 }
