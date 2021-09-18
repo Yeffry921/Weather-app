@@ -1,75 +1,79 @@
-const weatherData = (() => {
-	const getTemp = async (city) => {
-		const apiKey = '50e876f0306cf9fa7f04e6e896979c45';
+navigator.geolocation.getCurrentPosition(async (position) => {
+	const data = await fetchWeather(position.coords.latitude, position.coords.longitude);
+	renderWeather(data)
+})
 
-		const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
-		const data = await response.json();
-		return data;
-	}
+const fetchWeather = async (lat, lon) => {
 
-	const getCity = (e) => {
-		e.preventDefault();
-		return e.target.city.value;
-	}
-	const convertKelvinToCelsius = (temp) => {
-		return {
-			type: 'C°',
-			temperature: Math.round(temp - 273.15)
-		};
-	}
+	const apiKey = 'cf340f87b78434078bcfc1562e431517';
 
-	const convertKelvinToFahrenheit = (temp) => {
-		return {
-			type: 'F°',
-			temperature: Math.round(temp * 9 / 5 - 459.67)
-		};
-	}
-	return {
-		getTemp,
-		getCity,
-		convertKelvinToCelsius,
-    convertKelvinToFahrenheit,
-	};
-})();
+	const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
+	return await response.json()
+}
 
-const weatherUI = (() => {
-	const renderUI = (data) => {
-		document.querySelector('.weather-output-temp').textContent = `${data.temperature} ${data.type}`;
-  }
-	return {
-    renderUI,
-	};
-})();
+const renderWeather = (data) => {
 
-const weatherControl = ((weatherData, weatherUI) => {
-	let currentTemp;
+	const weekdays = []
 
-	document.querySelector('.weather-input-form').addEventListener('submit', (e) => {
-		e.preventDefault();
+	const headerRender = `
+ 		<div class="weather__header">
+	 		<h2 class="weather__location">${data.timezone}</h2>
+	 		<p class="weather__description">${data.current.weather[0].description}</p>
+	 		<h1 class="weather__temp">${Math.trunc(data.current.temp)}°</h1>
 
-		weatherData.getTemp(e.target.city.value).then((data) => {
-      currentTemp = data.main.temp;
-      // const weatherCondition = data.weather[0].description;
+	 		<img class="weather__icon" src="${`http://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png`}" alt="">
+ 		</div>
+ `
+	const arrayOfWeekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
-      weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(data.main.temp));
-      // weatherUI.renderCondition(weatherCondition)
 
-		});
-	});
+	const renderDaily = data.daily.map((day) => {
 
-	document.querySelector('.weather-metric').addEventListener('click', (e) => {
-		e.preventDefault();
-		if (e.target.textContent === '°C' && currentTemp !== undefined) {
-			weatherUI.renderUI(weatherData.convertKelvinToCelsius(currentTemp));
-		} else if (e.target.textContent === '°F' && currentTemp !== undefined) {
-			weatherUI.renderUI(weatherData.convertKelvinToFahrenheit(currentTemp));
-		}
-	});
-})(weatherData, weatherUI);
+		return `
+		<div class="weather__body">
+			<h2></h2>
+			<img class="weather__icon-body" src="${`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}" alt="">
+			<h4 class="weather__temp-body">${Math.trunc(day.temp.max)}°</h4>
+			<h4 class="weather__temp-body">${Math.trunc(day.temp.min)}°</h4>
+		</div>
+		`
+		
+	}).join('')
 
-// For tommorow
 
-// We need a way to make 2 choices, like 2 buttons or 2 radios
-// If button one is active then display F temp, if button 2 is active then display C temp
-// The toggle buttons will be highlighted when its active
-// By default we can have F button be active
+
+	document.querySelector('.weather__header-container').innerHTML = headerRender;
+	document.querySelector('.weather__body-container').innerHTML = renderDaily;
+}
+
+
+// const getGeoByCityName = async (city) => {
+// 	const apiKey = 'cf340f87b78434078bcfc1562e431517';
+
+// 	const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
+// 	return await response.json()
+// }
+
+// const fetchWeather = async (lat, lon) => {
+
+// 	const apiKey = 'cf340f87b78434078bcfc1562e431517';
+
+// 	const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`)
+// 	return await response.json()
+
+// }
+
+// console.log(fetchWeather())
+
+// // Example of simple data storage
+// const objData = {
+// 	name: '',
+// 	description: '',
+// 	temp: 00,
+// 	icon: '',
+// 	temp_min: 00,
+// 	temp_max: 00,
+// }
+
+// 888-801-1660 h1 managecare - healthfirst medicare
+//
