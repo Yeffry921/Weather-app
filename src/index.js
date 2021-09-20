@@ -57,7 +57,21 @@ window.onload = () => {
 	getWeatherByGeo();
 }
 
+document.querySelector('.search__form').addEventListener('submit', async (e) => {
+	e.preventDefault();
+	const searchQuery = document.querySelector('.search__input').value;
+	const response = await getGeoByCityName(searchQuery);
+	console.log(response);
+	const data = await fetchWeather(response.coord.lat, response.coord.lon);
+	renderWeather(data, response.name)
+})
 
+const getGeoByCityName = async (city) => {
+	const apiKey = 'cf340f87b78434078bcfc1562e431517';
+
+	const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`)
+	return await response.json()
+}
 
 // const fetchWeather = async (lat, lon) => {
 
