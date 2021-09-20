@@ -1,0 +1,61 @@
+[1mdiff --git a/src/index.css b/src/index.css[m
+[1mindex fda34a5..1fe319d 100644[m
+[1m--- a/src/index.css[m
+[1m+++ b/src/index.css[m
+[36m@@ -13,9 +13,22 @@[m [mbody {[m
+ [m
+ .app {[m
+   display: flex;[m
+[31m-  justify-content: center;[m
+   align-items: center;[m
+   min-height: 100vh;[m
+[32m+[m[32m  flex-direction: column;[m
+[32m+[m[32m}[m
+[32m+[m[32mheader {[m
+[32m+[m[32m  width: 100%;[m
+[32m+[m[32m  margin: 5em 0;[m
+[32m+[m[32m}[m
+[32m+[m[32m.search__input {[m
+[32m+[m[32m  width: 50%;[m
+[32m+[m[32m  display: block;[m
+[32m+[m[32m  margin: 0 auto;[m
+[32m+[m[32m  padding: .5em .25rem;[m
+[32m+[m[32m  border-radius: 0.2rem;[m
+[32m+[m[32m  border: none;[m
+[32m+[m[32m  border: 1px solid #dfe1e5;[m
+ }[m
+ [m
+ .weather__header {[m
+[36m@@ -27,7 +40,13 @@[m [mbody {[m
+ .weather__location {[m
+   margin: 1em 0;[m
+ }[m
+[31m-[m
+ .weather__description {[m
+[31m-  [m
+[32m+[m[32m  text-transform: capitalize;[m
+[32m+[m[32m}[m
+[32m+[m[32m.weather__body-container {[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.weather__body {[m
+[32m+[m[32m  text-align: center;[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/src/index.html b/src/index.html[m
+[1mindex bead098..4dce228 100644[m
+[1m--- a/src/index.html[m
+[1m+++ b/src/index.html[m
+[36m@@ -11,6 +11,11 @@[m
+ <body>[m
+ [m
+   <div class="app">[m
+[32m+[m[32m    <header>[m
+[32m+[m[32m      <form action="" class="search__form">[m
+[32m+[m[32m        <input type="text" class="search__input">[m
+[32m+[m[32m      </form>[m
+[32m+[m[32m    </header>[m
+     <section class="weather__header-container"></section>[m
+     <section class="weather__body-container"></section>[m
+   </div>[m

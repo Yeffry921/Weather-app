@@ -13,9 +13,22 @@ body {
 
 .app {
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 100vh;
+  flex-direction: column;
+}
+header {
+  width: 100%;
+  margin: 5em 0;
+}
+.search__input {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+  padding: .5em .25rem;
+  border-radius: 0.2rem;
+  border: none;
+  border: 1px solid #dfe1e5;
 }
 
 .weather__header {
@@ -27,7 +40,13 @@ body {
 .weather__location {
   margin: 1em 0;
 }
-
 .weather__description {
-  
+  text-transform: capitalize;
+}
+.weather__body-container {
+  display: flex;
+}
+
+.weather__body {
+  text-align: center;
 }
