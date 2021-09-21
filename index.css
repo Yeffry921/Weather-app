@@ -49,4 +49,17 @@ header {
 
 .weather__body {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.weather__day {
+  font-size: 12px;
+}
+
+.weather__body img {
+  width: 100%;
+  height: auto;
 }
