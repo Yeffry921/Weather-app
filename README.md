@@ -1,57 +1,29 @@
 # Daily Weather App
 
-Simple overview of use/purpose.
-
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+   - Weather app that automatically geets weather location based on your geolocation. Users can also perform their own search for weather data if they don't want to use geolocation. 
 
 ## Getting Started
 
+   Step 1- https://yeffry921.github.io/Weather-app/
+   Step 2- Allow or Block access to geolocation/Search for a location
+   Step 3- Enjoy your weather :)
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* None
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+* No need to install anything
 
 ## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+  * Myself 
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the [NAME HERE] License - 
 
 ## Acknowledgments
-
   * https://javascript.plainenglish.io/display-7-day-weather-forecast-with-openweather-api-aac8ba21c9e3 (Big help with getting the day of the week with date)
+  * OpenweatherAPI https://openweathermap.org/api
