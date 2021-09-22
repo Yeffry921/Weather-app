@@ -7,7 +7,9 @@
 ## Getting Started
 
    Step 1- https://yeffry921.github.io/Weather-app/
+   
    Step 2- Allow or Block access to geolocation/Search for a location
+   
    Step 3- Enjoy your weather :)
 ### Dependencies
 
