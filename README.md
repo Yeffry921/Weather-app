@@ -1,4 +1,4 @@
-# Daily Weather App
+# Weather App
 
 ## Description
 
@@ -17,10 +17,10 @@
 
 ### Installing
 
-* No need to install anything
+* None
 
 ## Authors
-  * Myself 
+  * Me 
 
 ## License
 
