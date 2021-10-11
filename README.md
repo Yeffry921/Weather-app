@@ -20,7 +20,7 @@
 * None
 
 ## Authors
-  * Me 
+  * Yeffry Fermin  
 
 ## License
 
